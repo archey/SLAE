@@ -7,7 +7,6 @@ from sys import exit
 import argparse
 import struct
 import binascii
-import re
 
 def validateport(port):
 	if port < 1 or port > 65535:
@@ -18,9 +17,9 @@ def validateport(port):
 
 def convertport(port):
     p = binascii.hexlify(struct.pack('<h', port)) # convert string port to little endian short format and then hex it to get the opcodes
-    if p[0:2] or p[2:] == "00":
-        print("Port contains null bytes")
-        print("We are fucked")
+    if p[0:2] == "00" or p[2:] == "00":
+        print("Port contains null bytes, please use a port that does not contain nullbytes")
+        exit()
     p = "\\x%s\\x%s" % (str(p[0:2]), str(p[2:]))
     return p
 
