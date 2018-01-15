@@ -17,7 +17,7 @@ def validateport(port):
 
 def convertport(port):
     if len(hex(port)[2:]) < 4:
-        p = binascii.hexlify(struct.pack('<H', port)) # convert string port to little endian short format and then hex it to get the opcodes
+        p = binascii.hexlify(struct.pack('<h', port)) # convert string port to little endian short format and then hex it to get the opcodes
         print(p)
         if p[0:2] == "00" or p[2:] == "00":
             print("[*] - NULL BYTES DETECTED")
