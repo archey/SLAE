@@ -24,7 +24,6 @@ _start:
 
 
 section .data
-	
 
 	message: db "Hello world!",0xa ; prints hello world to the screen with a new line after it
 	mlen	equ $-message
@@ -34,7 +33,7 @@ section .data
 	var3: 	dw 0xEE ; a word EE is atually 2 bytes on 32bit i686
 	var4:	dd 0xAABBCCDD ; 4 bytes define double word
 	var5:	dd 0x112233; define double word 4 bytes
-	var6:	TIMES 6 db 0xFF 
+	var6:	TIMES 6 db 0xFF
 
 section .bss
 
