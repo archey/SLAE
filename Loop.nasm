@@ -10,7 +10,8 @@ _start:
 
 
 Begin:
-	mov ecx, 0x10; move 10 bytes into ecx to start our counter loop should print 10 times
+	; 10 is 0xA in hex
+	mov ecx, 0xA; move 10 bytes into ecx to start our counter loop should print 10 times
 
 Print:
 	push ecx; push to stack to hold on to the value as we will overwriting it in our print to the screen with our message
